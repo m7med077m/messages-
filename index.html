@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Chat Backup</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 90vh;
+        }
+
+        .message {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #eaeaea;
+            transition: background-color 0.3s;
+        }
+
+        .message:hover {
+            background-color: #f1f1f1;
+        }
+
+        .user-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-content {
+            flex: 1;
+        }
+
+        .timestamp {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .author {
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .controls button {
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        #scrollTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+            display: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #scrollTop:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+        <div class="chat-container" id="chatContainer">
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="Wafaa Yousif"></div>
+            <div class="message-content">
+                <p class="timestamp">17:51</p>
+                <p class="author">Wafaa Yousif</p>
+                <p>كان لجنتين عملى أول لجنة كانت دكتورة اكسترنال سألتنى examine chest</p>
+                <p>Lines of percussion</p>
+                <p>Percussion of krenigs ismuth</p>
+                <p>Causes of its dullnes</p>
+                <p>Symptoms of chest</p>
+                <p>عيان عنده bronchogenic carcinoma هيجى بيشتكى من ايه</p>
+            </div>
+        </div>
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="Wafaa Yousif"></div>
+            <div class="message-content">
+                <p class="timestamp">17:55</p>
+                <p class="author">Wafaa Yousif</p>
+                <p>اللجنة التانية مع دكتور عمرو خليفة كانت حالة thyroid</p>
+                <p>Examine Head and neck</p>
+                <p>Oral diabetic drugs</p>
+                <p>ايه اللى بيعمل weight gain and weight loss</p>
+                <p>Metabolic syndrome</p>
+            </div>
+        </div>
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="ahmed elsedawy"></div>
+            <div class="message-content">
+                <p class="timestamp">18:22</p>
+                <p class="author">ahmed elsedawy</p>
+                <p>اول لجنة عملي دكتوره زهراء</p>
+                <p>Symptomatology of chest</p>
+                <p>Bare area of the heart وتفاصيل فيهم بقى شويه حلوين</p>
+                <p>لجنه تانيه عملي دكتور عمرو خليفه</p>
+                <p>Examine thyroid</p>
+                <p>وكام سؤال كده مفهمتش هو عايز ايه</p>
+                <p>وقعد يسأل ف الthyroid cancer</p>
+                <p>الشفوي دكتور مدحت</p>
+                <p>D D of micro hypo anemia</p>
+                <p>Wilson disease</p>
+                <p>acute renal failure</p>
+                <p>Addison crisis</p>
+                <p>SLE ال CRITERIA بتاعتها</p>
+                <p>المواضيع دي بقي بيسأل فيها كذا سؤال</p>
+            </div>
+        </div>
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="Nuran Reda"></div>
+            <div class="message-content">
+                <p class="timestamp">22:26</p>
+                <p class="author">Nuran Reda</p>
+                <p>العملي</p>
+                <p>دكتورة اكسترنال سالتني في how to auscultate abdomen</p>
+                <p>Percuss abdomen</p>
+                <p>Examination of ascitis</p>
+                <p>د.عمرو خليفة</p>
+                <p>Examine head and neck وقعد يسأل في الexaminationبتاع الثايرويد</p>
+                <p>الشفوي</p>
+                <p>د تامر حيدرة بيركز في الgit علي الكرونز والUC والفروقات مابينهم خصوصا الmicroscopic</p>
+                <p>Acute complications of DM</p>
+                <p>Chronic complications of DM</p>
+                <p>Criteria of SLE</p>
+                <p>Criteria of RA</p>
+            </div>
+        </div>
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="Walaa Elbasuony"></div>
+            <div class="message-content">
+                <p class="timestamp">13:20</p>
+                <p class="author">Walaa Elbasuony</p>
+                <p>دكتور محمد خالد</p>
+                <p>Examine pulse</p>
+                <p>Causes of generalized lymphadenopathy</p>
+                <p>ازاى اعرف ال huge splenomegaly?</p>
+                <p>الفرق بين ال obesity & ascitis بال umbilicus?</p>
+                <p>Causes of renal failure in rheumatoid arthritis?</p>
+                <p>Causes of absent splenic notch?</p>
+                <p>دكتور ايهاب حسونه</p>
+                <p>Examine edema LL</p>
+                <p>Examine hand & flappy tremors and its causes & fine tremors and its causes?</p>
+                <p>Causes of clubbing?</p>
+                <p>الشفوى دكتور عمرو خليفه</p>
+                <p>1. لو جالك مريض 110 كيلو وسكره 180 وال A1C 8 هتمشيه على ايه غير ال life style?</p>
+                <p>2. مريض diabetes وحصله renal impairement امتى تطلبله biopsy?</p>
+                <p>3. مريض rheumatoid arthritis داخل عمليه هتطلبه investigations ايه؟</p>
+            </div>
+        </div>
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="آية عبدالعزيز"></div>
+            <div class="message-content">
+                <p class="timestamp">13:20</p>
+                <p class="author">آية عبدالعزيز</p>
+                <p>شفوي دكتور مدحت</p>
+                <p>Causes of hyperkalemia</p>
+                <p>Iron deficiency anaemia</p>
+                <p>D.D microcytic anemia</p>
+                <p>Chronic renal failure</p>
+                <p>Liver cell failure</p>
+                <p>Hepatorrnal syndrome</p>
+                <p>عملي دكتور رشا</p>
+                <p>Facies</p>
+                <p>Type of thalassemia</p>
+                <p>Comments on pulse</p>
+                <p>Doralis pedis</p>
+                <p>Pallor examination</p>
+                <p>Suprasternal pulsation</p>
+                <p>وشويه اسئله كدا بشكل عام مش فكراها بديهيه</p>
+                <p>دكتور محمد خالد عملي</p>
+                <p>Examination of abdomen</p>
+                <p>Palpation of liver</p>
+                <p>Absent splenic notch</p>
+                <p>Abnormal colour around umbilicus</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="ايمان شعبان"></div>
+            <div class="message-content">
+                <p class="timestamp">13:44</p>
+                <p class="author">ايمان شعبان</p>
+                <p>شفوي د عمرو</p>
+                <p>DM (drugs)</p>
+                <p>Diabetes insipidud causes وازاي تفرق بين</p>
+                <p>ال central & nehrogenic</p>
+                <p>Ulcerative colitis diagnosis</p>
+                <p>Liver decompensation manifestation</p>
+                <p>Causes of clubbing</p>
+                <p>مش فاكره فيه ايه تاني</p>
+                <p>العملي دكتور اكسترنال حالة ascitis</p>
+                <p>Surface anatomy of gall bladder</p>
+                <p>Inspect abdomen</p>
+                <p>واسئلة ف اللي بقوله بقا</p>
+                <p>د محمد خالد عملي</p>
+                <p>Pulse</p>
+                <p>Causes of unilateral edema</p>
+                <p>الفرق بين hematemisis & haemoptysis</p>
+                <p>Causes of absence splenic notch</p>
+                <p>Causes of congestd pulsating neck vein</p>
+                <p>Causes of absence radial pulse</p>
+                <p>بشوف ال pallor وال jaundice فين</p>
+                <p>ومش فاكره برده فيه اسئله تانيه ولا ايه</p>
+                <p>EE</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="Eman Elmenofy"></div>
+            <div class="message-content">
+                <p class="timestamp">13:46</p>
+                <p class="author">Eman Elmenofy</p>
+                <p>دكتورة رشا عملي</p>
+                <p>ايه الfacies</p>
+                <p>_epigastric pulsation &origin&causes</p>
+                <p>_suprasternal pulsation &causes</p>
+                <p>_water hammer pulse&causes</p>
+                <p>دكتور اكسترنال عملي</p>
+                <p>inspect faceكل حاجه</p>
+                <p>inspect abdomen كل حاجه</p>
+                <p>ازاي اعرف ان الfacies دي acromegaly or thalssemia</p>
+                <p>ازاي اعرف ان maxilla protruded</p>
+                <p>شفوي دكتور عمرو خليفه🙂</p>
+                <p>nephrotic syndrome</p>
+                <p>امتي فيها ال complement system يبقي قليل</p>
+                <p>ايه الinvetigation اللي بعملها لعيان اتشخص DM type2</p>
+                <p>جالي عيان 55سنه وعنده recurrent UTI &dysuria اقول عنده أيه</p>
+                <p>polythythmeyia rubra vera &diagnostic test</p>
+                <p>Kala zar</p>
+                <p>ده اللي فاكراه🙂</p>
+            </div>
+            
+        </div>
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">12:01</p>
+                <p class="author">الاء شاهين</p>
+                <p>د مدحت manifestation livre cell failure</p>
+                <p>Microcytic hypochromic anemia</p>
+                <p>Causes chronic renal failure</p>
+                <p>Thiroid emergency</p>
+                <p>Diagnosis of raumatoid arthritis</p>
+                <p>..</p>
+                <p>د رشا حاله thalassemia</p>
+                <p>Puls</p>
+                <p>Cause splenomegaly in patient</p>
+                <p>Examine supra sternal pulsation and causes</p>
+                <p>د محمد خالد حاله ascites</p>
+                <p>Examine abdomen</p>
+                <p>Causes of splenomegaly</p>
+                <p>Causes abcent notch =infarction</p>
+                <p>causes of coulr around umbilicus =Cullen sign</p>
+                <p>Causes bilat/ unilat LL edama</p>
+                <p>Huge spleen ?</p>
+                <p>رنا joined group by link from Group</p>
+                <p>آ?</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">12:36</p>
+                <p class="author">آيووو 🐳 🍊</p>
+                <p>دكتور مدحت شفوي</p>
+                <p>Liver cell failure</p>
+                <p>Microcytic hypochromic anemia</p>
+                <p>Causes of renal failure</p>
+                <p>Thyroid emergency</p>
+                <p>دكتور اكسترنال عملي</p>
+                <p>حالة ascites</p>
+                <p>Examine liver</p>
+                <p>Liver span</p>
+                <p>ايه يخلي ال liver palpable</p>
+                <p>دكتور محمد خالد</p>
+                <p>Pulse</p>
+                <p>Causes of splenomegaly</p>
+                <p>Causes of absent notch</p>
+                <p>Colour around umbilicus</p>
+                <p>Huge spleen</p>
+                <p>Causes of palmer erythema</p>
+                <p>Sara Moustafa joined group by link from Group</p>
+                <p>آ</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">13:20</p>
+                <p class="author">آية عبدالعزيز</p>
+                <p>شفوي دكتور مدحت</p>
+                <p>Causes of hyperkalemia</p>
+                <p>Iron deficiency anaemia</p>
+                <p>D.D microcytic anemia</p>
+                <p>Chronic renal failure</p>
+                <p>Liver cell failure</p>
+                <p>Hepatorrnal syndrome</p>
+                <p>عملي دكتور رشا</p>
+                <p>Facies</p>
+                <p>Type of thalassemia</p>
+                <p>Comments on pulse</p>
+                <p>Doralis pedis</p>
+                <p>Pallor examination</p>
+                <p>Suprasternal pulsation</p>
+                <p>وشويه اسئله كدا بشكل عام مش فكراها بديهيه</p>
+                <p>دكتور محمد خالد عملي</p>
+                <p>Examination of abdomen</p>
+                <p>Palpation of liver</p>
+                <p>Absent splenic notch</p>
+                <p>Abnormal colour around umbilicus</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">13:44</p>
+                <p class="author">ايمان شعبان</p>
+                <p>شفوي د عمرو</p>
+                <p>DM (drugs)</p>
+                <p>Diabetes insipidud causes وازاي تفرق بين</p>
+                <p>ال central & nehrogenic</p>
+                <p>Ulcerative colitis diagnosis</p>
+                <p>Liver decompensation manifestation</p>
+                <p>Causes of clubbing</p>
+                <p>مش فاكره فيه ايه تاني</p>
+                <p>العملي دكتور اكسترنال حالة ascitis</p>
+                <p>Surface anatomy of gall bladder</p>
+                <p>Inspect abdomen</p>
+                <p>واسئلة ف اللي بقوله بقا</p>
+                <p>د محمد خالد عملي</p>
+                <p>Pulse</p>
+                <p>Causes of unilateral edema</p>
+                <p>الفرق بين hematemisis & haemoptysis</p>
+                <p>Causes of absence splenic notch</p>
+                <p>Causes of congestd pulsating neck vein</p>
+                <p>Causes of absence radial pulse</p>
+                <p>بشوف ال pallor وال jaundice فين</p>
+                <p>ومش فاكره برده فيه اسئله تانيه ولا ايه</p>
+                <p>EE</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">13:46</p>
+                <p class="author">Eman Elmenofy</p>
+                <p>دكتورة رشا عملي</p>
+                <p>ايه الfacies</p>
+                <p>_epigastric pulsation &origin&causes</p>
+                <p>_suprasternal pulsation &causes</p>
+                <p>_water hammer pulse&causes</p>
+                <p>دكتور اكسترنال عملي</p>
+                <p>inspect faceكل حاجه</p>
+                <p>inspect abdomen كل حاجه</p>
+                <p>ازاي اعرف ان الfacies دي acromegaly or thalssemia</p>
+                <p>ازاي اعرف ان maxilla protruded</p>
+                <p>شفوي دكتور عمرو خليفه🙂</p>
+                <p>nephrotic syndrome</p>
+                <p>امتي فيها ال complement system يبقي قليل</p>
+                <p>ايه الinvetigation اللي بعملها لعيان اتشخص DM type2</p>
+                <p>جالي عيان 55سنه وعنده recurrent UTI &dysuria اقول عنده أيه</p>
+                <p>polythythmeyia rubra vera &diagnostic test</p>
+                <p>Kala zar</p>
+                <p>ده اللي فاكراه🙂</p>
+                <p>Abdulrahman Albalasy joined group by link from Group</p>
+                <p>Rawan Elzeftawy joined group by link from Group</p>
+                <p>طلعت شعبان joined group by link from Group</p>
+                <p>Rahma AbdElfattah joined group by link from Group</p>
+                <p>AA</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">14:29</p>
+                <p class="author">Amal Ashraf</p>
+                <p>شفوي د تامر</p>
+                <p>-Microscopic, investigation of crohns teratment</p>
+                <p>Negative arthropathy</p>
+                <p>Diagnosis, treatment of nephrotic syndrome</p>
+                <p>عملي</p>
+                <p>د. رشا</p>
+                <p>Thalasmia</p>
+                <p>. Types</p>
+                <p>. Examine epigastric palsution</p>
+                <p>كانت عايزاني اقول الaortic pulsation جاي منaortic aneurysm</p>
+                <p>دكتور تاني external</p>
+                <p>سأل في الpulse بكل تفاصيله و ركز ع ال exam of priphral pulsation</p>
+                <p>Sara el Basuney joined group by link from Group</p>
+                <p>Abed Jamhour joined group by link from Group</p>
+                <p>Aziza Alrmady joined group by link from Group</p>
+                <p>الاء شاهين joined group by link from Group</p>
+                <p>OS</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">14:56</p>
+                <p class="author">Omnia Shaheen</p>
+                <p>شفوي دكتور عمرو خليفة</p>
+                <p>..Polycythemia Rubra vera</p>
+                <p>تعرفي عنها ايه ؟ الزياده بتكون في ال RBC ولا Hb ؟ بنعرفها ازاي كان عاوز ال Jak2 mutation ؟ ولما قلتله CBC سأل بيكون ال HB كام ؟</p>
+                <p>..Indication of dialysis in non renal patient?</p>
+                <p>..Side effect of Gliclazide ?</p>
+                <p>..Decompensated liver cell failure . Best diuretic in hepatic patient?</p>
+                <p>عملي اكسترنال</p>
+                <p>..Examine vital sign ? ووقفني في ال وسأل فيه شويه وبنعرفه ازاي volume</p>
+                <p>وقالي هاتيلي ال dorsalis pedis ؟</p>
+                <p>..Inspection of abdomen</p>
+                <p>عملي دكتور رشا</p>
+                <p>كانت حالة thalassemia</p>
+                <p>..Examine face وسألت ده بتاع ايه ؟</p>
+                <p>..ال defect في ال thalassemia بيكون فين وقوليلي انواعها ؟</p>
+                <p>..Cause of splenomegaly in this patient? And cause of splenectomy in this patient?</p>
+                <p>..Examine pallor ? Cause of pallor in this patient?</p>
+                <p>..Hemolysis in this case is intravascular or extravascular ?</p>
+                <p>G</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">15:02</p>
+                <p class="author">Gamal</p>
+                <p>د محمد خالد</p>
+                <p>Pulse وكومنت عليه وايه بيعمل irrigularity</p>
+                <p>Examine jaundice</p>
+                <p>وازاي تفرق بين AF و VF ف الpulse</p>
+                <p>Causes of huge spleen</p>
+                <p>Causes of pulsating tender liver</p>
+                <p>Causes of absent splenic notch</p>
+                <p>د اكسترنال</p>
+                <p>Inspect abdomen</p>
+                <p>Palpate spleen وكومنت عليه</p>
+                <p>Palpate live</p>
+                <p>Examine ascites وسأل عن الthrill</p>
+                <p>وسألني سؤال ب ٤٠ درجه بيقول فال percussion ال left middle finger اسمه percussed وال right percussing</p>
+                <p>ليهم اسم تاني ايه هو 😂</p>
+                <p>وسألني ف ال ballottement انهي ايد ant وانهي ايد posterior</p>
+                <p>د مدحت شفوي</p>
+                <p>Causes of hyperkalemia</p>
+                <p>Addison واتكلم عنه</p>
+                <p>ARF والCRF وسأل فيهم شويه</p>
+                <p>وفالاخر how to diagnose RA وسأل فيه serological test جديد ايه هو</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">15:22</p>
+                <p class="author">Aya ibrahim</p>
+                <p>شفوي دكتور مدحت</p>
+                <p>Haemochromatosis</p>
+                <p>Microcytic hypochromic anemia DD</p>
+                <p>Iron deficiency anemia causes</p>
+                <p>Addison</p>
+                <p>Hyperkalemia وال normal range</p>
+                <p>عملي د رشا</p>
+                <p>Thalathemia facies</p>
+                <p>وموجوده ف اي تاني ؟ ال down</p>
+                <p>Epigastric pulsation</p>
+                <p>Lower limb edema واسبابها وفحصها</p>
+                <p>ازاي افحص ال jaundice ونوعها اي في الحاله وبتبان فين غير ال sclera وتعريفها ونوعها ولو اثرت ع ال liver تعمل فيه اي</p>
+                <p>دكتور external</p>
+                <p>Splenomegaly</p>
+                <p>Examine neck</p>
+                <p>Lymph nodes</p>
+                <p>وسأل ف ال hemolytic anemia اي النوع اللي مبيعملش splenomegaly</p>
+                <p>دا اللي فكراه</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">15:47</p>
+                <p class="author">Eman</p>
+                <p>دكتور عمرو خليفة شفوى</p>
+                <p>Causes of anemia in chronic renal failure</p>
+                <p>Indication of insuline</p>
+                <p>وامتى استعمله مع oral hypoglycemic drugs</p>
+                <p>Metformin بستعمله فى ايه غير علاج DM</p>
+                <p>Eye signs in hyperthyroidism</p>
+                <p>تعرفى ايه عن prognathism</p>
+                <p>العملى</p>
+                <p>اكسترنال inspect abdomen كانت حالة ascites</p>
+                <p>دكتور محمد خالد</p>
+                <p>Examine jaundice</p>
+                <p>امتى تحصل وليه اشوفها فى sclera</p>
+                <p>Causes of anemia in chronic liver failure</p>
+                <p>Causes of tender liver</p>
+                <p>Causes of generalized lymphadenopathy</p>
+                <p>Absent splenic notch</p>
+                <p>Huge spleen</p>
+                <p>لو عيان عنده chronic liver cell failure ايه العلامات إللى تشوفها عليه وتشخصه بيها</p>
+                <p>AH</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">15:47</p>
+                <p class="author">Alaa Helal</p>
+                <p>عملي</p>
+                <p>د.فرج اكسترنال</p>
+                <p>Palpation of abdomen</p>
+                <p>Examine face</p>
+                <p>Causes of hepatomegaly</p>
+                <p>د.رشا</p>
+                <p>على مريض thalassemia</p>
+                <p>حسي suprasternal pulse</p>
+                <p>أسبابة</p>
+                <p>Epigastric pulse واسبابة</p>
+                <p>Examine edema</p>
+                <p>Causes of pitting</p>
+                <p>Mongloid facies</p>
+                <p>Hemochromatosis</p>
+                <p>ليه بعمله splenectomy</p>
+                <p>ايه السبب ال يموته 👀</p>
+                <p>... شفوي</p>
+                <p>د.تامر</p>
+                <p>Differentiation bet chrons , ulcerative colitis</p>
+                <p>Pathology</p>
+                <p>لو chrons و جاله arthritis يبقى اسمه ايه</p>
+                <p>ايه ال tests المميزه ليه</p>
+                <p>Ttt of nephrotic</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">15:52</p>
+                <p class="author">Eman</p>
+                <p>In reply to this message</p>
+                <p>السؤال بتاع metformin الحالة التانيه إللى بستعمله فيها هى polycystic ovary</p>
+                <p>ES</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">16:21</p>
+                <p class="author">Eman Sabba7</p>
+                <p>شفوى د مدحت</p>
+                <p>Hemochromatosis</p>
+                <p>Def. Manifestations اهم حاجة pancreas DM</p>
+                <p>Ttt اهم حاجة venesection</p>
+                <p>Criteria of SLE وتتشخص بكام واحدة(٤)</p>
+                <p>Megalobastic anemia بيسيب السؤال مفتوح تقول اللى عارفه</p>
+                <p>بس سألنى ال cns Manifestation سببها إيه فيهم قصدة vit.b12 يعنى</p>
+                <p>Causes of hypokalemia</p>
+                <p>العملى لجنة اكسترنال د هنداوى</p>
+                <p>Inspection of abdomen and comment</p>
+                <p>Palpation of spleen and comment فالطبيعى يتحس ولا لا ويتحس امتى</p>
+                <p>Surface anatomy of gall bladder</p>
+                <p>العملى٢ د محمد خالد</p>
+                <p>Examine pulse and comment</p>
+                <p>أنواع irregular pulse</p>
+                <p>والفرق بينهم</p>
+                <p>LCF manifestations</p>
+                <p>Spider naevi موجوده فين</p>
+                <p>اسم criteria بتاعه SLE وserological tests</p>
+                <p>ازاى افرق بينها وبين drug induced</p>
+                <p>Criteria اللى بتظهر ع شكل مريض cushing</p>
+                <p>الفرق بين hemoptysis and hematemesis</p>
+                <p>ده اللى فاكراه</p>
+                <p>AE</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">16:37</p>
+                <p class="author">Alzhraa EZZeldein</p>
+                <p>لجنة عملى (1) دكتور اكسترنال</p>
+                <p>Examine abdomen</p>
+                <p>(inspection, percussion,papation )</p>
+                <p>Comment on spleen</p>
+                <p>عرفتى منين إنه splenomegaly مش kidney enlargement؟</p>
+                <p>لجنة عملى (2) دكتور محمد خالد</p>
+                <p>Inspect abdomen</p>
+                <p>Causes of obtused</p>
+                <p>Causes of generalized lymphadenopathy</p>
+                <p>Mild acites أجيبه إزاى ?</p>
+                <p>=عاوز الposition</p>
+                <p>Cushing's criteria</p>
+                <p>Causes of pulsating liver</p>
+                <p>Diabetes insipidus mechanism &</p>
+                <p>C/P</p>
+                <p>Causes of absent redial pulse</p>
+                <p>لجنة الشفوى دكتورة رشا</p>
+                <p>Rheumatic diseases causes polyarthritis?</p>
+                <p>Causes of acute kidney failure</p>
+                <p>Acute complications if DM</p>
+                <p>causes of hypothyroidism</p>
+                <p>نوع الأنيميا فى مريض thalassemia</p>
+                <p>وإيه أهم investigation لها ؟</p>
+                <p>Types of anemia</p>
+                <p>Melena -----(Def.& causes)</p>
+                <p>وكمان أسئلة تانية مش فاكراها بس سهلة</p>
+                <p>آا</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">17:01</p>
+                <p class="author">آية خيرى البستاوى</p>
+                <p>عملي (1)..د. فرج اكسترنال</p>
+                <p>Examine Hand</p>
+                <p>Inspect abdomen</p>
+                <p>Palpate spleen and comment</p>
+                <p>Causes of clubbing</p>
+                <p>عملي (2)..د. رشا</p>
+                <p>حالة Thalassemia</p>
+                <p>فيها الferritin عامل اي زايد ولا ناقص..</p>
+                <p>لو بنسلم علي عيان ولقينا فيها sweating ممكن يكون أمراض اي..</p>
+                <p>أكتر organ نخاف عليه من iron deposition ف الthalathemia</p>
+                <p>(heart)...</p>
+                <p>اي الأمراض اللي نقدر نعرفها من الhand ..</p>
+                <p>شفوي د. مدحت</p>
+                <p>Manifestations of aplastic anemia.</p>
+                <p>Normal range of potassium, causes of hypo and hyper kalemia.</p>
+                <p>Most important Endocrinal cause of HTN .</p>
+                <p>Causes of Ascites</p>
+                <p>Manifestations of liver cell failure.</p>
+                <p>hb</p>
+            </div>
+        </div>
+        
+        <div class="message">
+            <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+            <div class="message-content">
+                <p class="timestamp">17:40</p>
+                <p class="author">hossam basala</p>
+                <p>عملي (1)د.رشا</p>
+                <p>حالة thalassemia ايه اسم ال faciesواوصفها؟</p>
+                <p>ليه عنده protruded maxilla؟</p>
+                <p>Clinical picture ودخلت فال hemochromatosis.</p>
+                <p>Investigations and what is most diagnostic?</p>
+                <p>لما نيجي نشيل ال spleen بنشيل معاه ايه في نفس العملية؟ الإجابة الgall bladder</p>
+                <p>عملي(2) دكتور اكسترنال</p>
+                <p>Inspect abdomen.</p>
+                <p>Causes of divercation of recti?</p>
+                <p>Causes of splenomegaly</p>
+                <p>Auscultate the heart.</p>
+                <p>شفوي دكتور عمرو خليفة</p>
+                <p>DKA كل حاجة</p>
+                <p>الفرق بين ال Cushing disease , Cushing syndrome.</p>
+                <p>Endocrinal causes of HTN.</p>
+                <p>ازاي افرق بين AKI , CRF : كان عايز ال US لازم تتقال.</p>
+                <p>Scleroderma Investigations.</p>
+                <p>AA</p>
+            </div>
+        </div>
+        Here are the new messages formatted as `<div>` elements:
+
+            ```html
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">17:41</p>
+                    <p class="author">Amira Ashraf</p>
+                    <p>الشفوى د/ عمرو خليفة</p>
+                    <p>-Systemic sclerosis تعرفى ايه عنه</p>
+                    <p>-Dysphagia بتحصل فين ف osphagus</p>
+                    <p>-Watermelon stomach تعرفى</p>
+                    <p>-Microvasculer complication of diabetes مين بيحصل الاول retinopathy ولا nephropathy</p>
+                    <p>-Causes of hypertention in endocrine</p>
+                    <p>-manifestation of pheochromocytoma</p>
+                    <p>-screening of Hcc</p>
+                    <p>العملى د/ رشا</p>
+                    <p>حالة thalassemia</p>
+                    <p>Facies دى بتاعة ايه</p>
+                    <p>Classification of thalassemia</p>
+                    <p>Inspect abdomen</p>
+                    <p>كان فيه scar قالتلى ف الخالة دى تبقى عمل عمليه ايه</p>
+                    <p>Splenectomy</p>
+                    <p>Causes of hypersplenism</p>
+                    <p>وليه بيحصل hypersplenism</p>
+                    <p>ولو شيلنا حاجة تانية تبقى ايه</p>
+                    <p>Gall bladder</p>
+                    <p>وليه بنشيلها</p>
+                    <p>examine epigastric pulsation</p>
+                    <p>Causes بتاعته</p>
+                    <p>Examination of edema</p>
+                    <p>Causes of pitting edema</p>
+                    <p>شوفى فيه gynecomastia ولالا</p>
+                    <p>Causes of gynecomastia</p>
+                    <p>دكتور اكسترنال</p>
+                    <p>Examine neck</p>
+                    <p>فرقى بين artry w vein in neck</p>
+                    <p>Causes of hepatomegaly</p>
+                    <p>ليه الHcc بتزيد ف الفترة الاخيرة</p>
+                    <p>عشان حملة فيرس سى الفترة الاخيرة اكتشفنا حالات كتيرة دى الاجابة</p>
+                    <p>A</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">19:16</p>
+                    <p class="author">Asmaa Abdelrahman</p>
+                    <p>دكتور اكسترنال</p>
+                    <p>Inspect abdomen</p>
+                    <p>Examine liver وازاي تحسبي ال span</p>
+                    <p>Examine gall bladder</p>
+                    <p>دكتور محمد خالد</p>
+                    <p>١- اي skin manifestation اللي تقولي المريض دا عنده chronic liver disease</p>
+                    <p>٢- ال pulse عامل اي ف مريض ال thyrotoxicosis</p>
+                    <p>٣- causes of splenomegaly</p>
+                    <p>٤- causes of non pulsating neck vein</p>
+                    <p>٥- سبب ال anemia ف مريض ال liver</p>
+                    <p>٦- causes of obtuse subcostal angel</p>
+                    <p>٧- spider nevi موجوده فين</p>
+                    <p>شفوي دكتوره رشا</p>
+                    <p>١- classifications of anemia</p>
+                    <p>٢- diagnosis of DM</p>
+                    <p>٣- hematochetizia راي اسبابها</p>
+                    <p>٤- haematological manifestation of SLE</p>
+                    <p>A</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">19:56</p>
+                    <p class="author">Amany</p>
+                    <p>د. تامر عملى</p>
+                    <p>Palpate spleen</p>
+                    <p>Percuss upper border of liver & ascites</p>
+                    <p>لو دا عيان portal hypertension ايه السبب واعمله ايه يخلصه خالص من المرض دا</p>
+                    <p>د. عمرو خليفه عملى</p>
+                    <p>Examine liver</p>
+                    <p>د . مدحت شفوى</p>
+                    <p>قولى اى حاجه عن ال hemochromatosis</p>
+                    <p>Microcytic hypochromic anemia</p>
+                    <p>Causes of iron deficiency anemia</p>
+                    <p>Causes of hyperkalemia & normal level</p>
+                    <p>Emergency of thyroid</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">20:36</p>
+                    <p class="author">Basma Arafat</p>
+                    <p>Inspect abdomen ف العملي اللجنتين</p>
+                    <p>د رشا ود محمد خالد</p>
+                    <p>ود عمر خليفة شفوي indication of dialysis</p>
+                    <p>Trauma in brain تعمل اي نوع edema</p>
+                    <p>انواع pituitary adenoma</p>
+                    <p>Polycythemia</p>
+                    <p>و red flag of GERD</p>
+                    <p>RA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">22:20</p>
+                    <p class="author">Rahma AbdElfattah</p>
+                    <p>mahmoud abbas 16.12.2019 16:12:02</p>
+                    <p>Abdomen Clinical</p>
+                    <p>التطبيق ع الـ patient</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">09:52</p>
+                    <p class="author">Asmaa Anter</p>
+                    <p>العملى اللجنة الأولى</p>
+                    <p>examine spleen و ناخد بالنا إنه examine يعنى تبدأ بس تعرفه إنك كدا هتعمل كل ال items ولو لقى كدا هيقولك خلاص palpate spleen</p>
+                    <p>و كذا سؤال زي إيه الى هيظهر ع العيان لو بقا decomposated و ايه ال definitive ttt ليه هوا كان عيان cirrhosis فالإجابة liver transplantation</p>
+                    <p>اللجنة التانية د.عمرو</p>
+                    <p>Inspect abdomen</p>
+                    <p>و سألنى يعني ايه divercation of recti</p>
+                    <p>شفوي د.مدحت حلو جدا و طيب</p>
+                    <p>Manifestation of LCF</p>
+                    <p>Criteria of SLE</p>
+                    <p>Sickle cell anemia</p>
+                    <p>و ايه الvessels الي بتسدها لما يحصل crisis</p>
+                    <p>AD</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">22:27</p>
+                    <p class="author">Abdullah Daboos</p>
+                    <p>الامتحان الساعه كام ؟</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">28 September 2022 12:59</p>
+                    <p class="author">Sara</p>
+                    <p>شفوي دكتور رشا</p>
+                    <p>Thrombocytopenia</p>
+                    <p>Iron deficiency anemia</p>
+                    <p>Diagnosis of diabetes</p>
+                    <p>Addison disease</p>
+                    <p>Acute renal failure</p>
+                    <p>Rheumatoid arthritis ( manifestation / نوعه destructive</p>
+                    <p>وإيه الحاجات اللي بتعمل deformity of hand غير ال rheumatoid هتبقى septic arthritis and acute gouty arthritis )</p>
+                    <p>Proteinuria</p>
+                    <p>مش فاكرة إذا في حاجة تانية بس الأسئلة بتتكرر يعني</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div
+            
+             class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">13:06</p>
+                    <p class="author">عملي</p>
+                    <p>دكتور تامر كانت حالة فيها arthritis و sle بس هو سأل على ال arthritis</p>
+                    <p>Examine hand</p>
+                    <p>Rheumatoid و سأل بقا في ال</p>
+                    <p>اللي فاكراه من أسئلته ال treatment</p>
+                    <p>و دكتور اكسترنال سأل في الشيست مش فاكرة الأسئلة علشان مكنتش مذاكرة شيست بس هو قال percuss chest و في الآخر قال palpate spleen</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">13:12</p>
+                    <p class="author">Dina</p>
+                    <p>شفوى د مدحت</p>
+                    <p>DD of macrocytic anemia</p>
+                    <p>Megaloplastic anemia manifestation</p>
+                    <p>Causes of ascites</p>
+                    <p>ايه نوع الmalignancy اللي يعملها عاوز ال ovarian</p>
+                    <p>Glucose tolerance test</p>
+                    <p>عملى د عمرو</p>
+                    <p>Examine pulse</p>
+                    <p>عملى د محمد خالد</p>
+                    <p>Why examine jaundice in sclera</p>
+                    <p>Bilateral LL edema causes</p>
+                    <p>Palpate liver</p>
+                    <p>Causes of enlarged tender liver</p>
+                    <p>Rm</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">13:34</p>
+                    <p class="author">Rania mohamed</p>
+                    <p>شفوي د. مدحت</p>
+                    <p>Causes of ascites</p>
+                    <p>Meig syndrome</p>
+                    <p>Normal range of albumin, reticulocytes</p>
+                    <p>Causes of hyperkalemia</p>
+                    <p>Investigations of thalassemia</p>
+                    <p>DD of micro hypo anemia</p>
+                    <p>عملي د.رشا</p>
+                    <p>Examine pulse and comment</p>
+                    <p>Causes of palmer erythema? Cardiac cause?</p>
+                    <p>Facies of valvular lesion</p>
+                    <p>Cardiac cause of jaundice</p>
+                    <p>عملي دكتور اكسترنال</p>
+                    <p>Examine abdomen</p>
+                    <p>Palpate spleen and comment</p>
+                    <p>Deffrintiate between it and kidney</p>
+                    <p>Why kidney movement is limited</p>
+                    <p>AA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">13:58</p>
+                    <p class="author">Abdelwahab Ahmed</p>
+                    <p>شفوى د مدحت</p>
+                    <p>Complication of cirrhosis</p>
+                    <p>Emergency of thyroid</p>
+                    <p>C/P of thyrotoxic crisis</p>
+                    <p>C/p Sickel cell anemia</p>
+                    <p>عملى د تامر</p>
+                    <p>ايه الdeformity اللى موجوده ف الهاند...كانت حاله روماتويد وكل الdeformties موجوده</p>
+                    <p>ايه اللى ممكن يعمل proteinuria ف عيان الروماتويد ....الاجابه الادويه بتاعت العلاج</p>
+                    <p>عملى اكسترنال</p>
+                    <p>Palpate spleen</p>
+                    <p>Compare between splenic and kidney swellin</p>
+                    <p>Liver span Def</p>
+                    <p>Percussion of upper border of spleen</p>
+                    <p>14:00</p>
+                    <p>Upper border of liver*</p>
+                    <p>AA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">14:01</p>
+                    <p class="author">Alyaa Alaa</p>
+                    <p>عملي دكتور عمرو خليفه</p>
+                    <p>Examine lower limb</p>
+                    <p>Dorsalis pedies</p>
+                    <p>Edema و شوية اسئله عليهم</p>
+                    <p>عملي د محمد خالد</p>
+                    <p>Examine abdomen</p>
+                    <p>Causes of distended abdomen</p>
+                    <p>Causes of anemia in liver disease</p>
+                    <p>مكان ال umbilicus الطبيعي و ايه انواع ال discharge الي بيطلع منها</p>
+                    <p>انواع splenic pain و ال spleen بيكبر ازاي</p>
+                    <p>و اسباب dull sternum و tender</p>
+                    <p>دا الي فاكراه😂</p>
+                    <p>و شفوي دكتوره رشا</p>
+                    <p>Iron deficiency anemia</p>
+                    <p>Thrombocytopenia</p>
+                    <p>Di واسبابه و ازاي افرق بينهم</p>
+                    <p>Lupus nephritis</p>
+                    <p>دا الي فاكراه</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">14:06</p>
+                    <p class="author">Deleted Account</p>
+                    <p>شفوي دكتوره رشا</p>
+                    <p>- causes of thrombocytopenia</p>
+                    <p>- types of scleroderma .. CREST كل حرف بيدل ع ايه</p>
+                    <p>- causes of monoartheritis</p>
+                    <p>- destructive artheropathy</p>
+                    <p>- def of liver cirrhosis</p>
+                    <p>- iron deficiency anemia & thalassemia سألت ع ال serum iron</p>
+                    <p>عملي ١ دكتور محمد خالد</p>
+                    <p>- examine abdomen</p>
+                    <p>Other type of contour ( scaphoid) and its causes</p>
+                    <p>What's is localised bulge ( البيشنت كان عنده hernia)</p>
+                    <p>- examine lower limb :</p>
+                    <p>بندور ع ال edema فين</p>
+                    <p>اسم ال artery ومكانه فين ( dorsalis pedis)</p>
+                    <p>- items of pulse</p>
+                    <p>Causes of irregular pulse and how to differentiate</p>
+                    <p>- direction of splenic enlargement</p>
+                    <p>- types of splenic pain</p>
+                    <p>- extraabdomial causes of abdominal pain</p>
+                    <p>عملي ٢ دكتور عمرو خليفه</p>
+                    <p>- examine pulse and comment</p>
+                    <p>- causes of bradycardia</p>
+                    <p>ايه الدوا اللي بيعملها واخاف منه ع مريض عنده ايه ( beta blocker)</p>
+                    <p>SZ</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">14:15</p>
+                    <p class="author">Samar Zidan</p>
+                    <p>دكتور محمد خالد (عملي)</p>
+                    <p>-Examin abdomen</p>
+                    <p>-jaundice فين بلاقي ال</p>
+                    <p>-Causes of tender liver</p>
+                    <p>-types of splenic pain</p>
+                    <p>-حاجات هتشوفيها ع المريض تقولي دا LCF</p>
+                    <p>-Causes of abdominal pain بس يكون الsource بتاعها مش من الabdomin</p>
+                    <p>-examin periphral pulsation</p>
+                    <p>-causes of unilateral LL edema</p>
+                    <p>-cause of dullnes of sternum طيب لو كانت pain ايه سببها</p>
+                    <p>دكتور عمرو خليفة (عملي)</p>
+                    <p>Examin LL</p>
+                    <p>وشوية اسئلة عليه وعلى الperiphral pulsation</p>
+                    <p>ومبصيتش بين الصوابع وعلق عليها جام
+            
+            د</p>
+                    <p>وايه اسم الlesion اللي بيكون هنا بعيان DM</p>
+                    <p>دكتور رشا (شفوي)</p>
+                    <p>-Types of anemia by cell cell size</p>
+                    <p>-Causes of acute renal failure</p>
+                    <p>-Hematological manfestation of SLE وايه المرض اللي يجي معاها يعمل thrombosis ويعلي WBC</p>
+                    <p>-Def of melena</p>
+                    <p>SH</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">14:44</p>
+                    <p class="author">Sara Hashim</p>
+                    <p>دكتور الهنداوي عملي</p>
+                    <p>Examine the abdomen</p>
+                    <p>Examine the spleen</p>
+                    <p>Liver span</p>
+                    <p>ماكنشي بيعطي اي ريأكشن 😶</p>
+                    <p>دكتور تامر حيدرة</p>
+                    <p>الحاله كانت RA</p>
+                    <p>اقول اي الموجود ف ال hand</p>
+                    <p>ازاي اعمل tests of carpal tunnel syndrome</p>
+                    <p>TTT of RA</p>
+                    <p>كان كويس وعناوينن كدا</p>
+                    <p>شفوي دكتورة رشا</p>
+                    <p>Classification of anemia ومثال لكل حاجه كدا</p>
+                    <p>لو حد vegetarian يجيله انيميا اي والاهم اقول vit B12 deficiency</p>
+                    <p>CREST Syndrome</p>
+                    <p>اي ال syndrome اللي ف ال SLE وبيعمل thrombosis</p>
+                    <p>Classification of DI والمهم اكون عارف الهرمون ف انهي زياده وانهي مضروب</p>
+                    <p>Melena definition وال level فين وال causes</p>
+                    <p>وف المجمل كانت عايزة عناوين ولطييفة خاالص</p>
+                    <p>S</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">15:08</p>
+                    <p class="author">SALMAN</p>
+                    <p>عملي</p>
+                    <p>لجنة د.تامر لجنة جميلة خفيفة والدكتور بيتكلم معاك مش بيسالك أو يحطك تحت الضغط</p>
+                    <p>-Examin the Hand</p>
+                    <p>كانت حالة R.A</p>
+                    <p>-Lines of treatment of R.A عددتها كان بيقول طب لو ما نفعش ندي ايه ولو مانفعش برده ندي ايه هو كان عايز الأدوية بترتيب حالة المريض وكان عايزك تقول آخر حاجة لو مانفعش معاه اي حاجة خالص تدي له TNF</p>
+                    <p>-IBD سأل على ال chron's Manifestations & treatment</p>
+                    <p>لجنة دكتور اكسترنال</p>
+                    <p>-Auscultation of the chest كانت حالة COPD سامع ايه، عايزك تقوله نوع ال-breathing sound ايه هو ال rhonchi</p>
+                    <p>-Palpate spleen</p>
+                    <p>الشفوي</p>
+                    <p>د.رشا</p>
+                    <p>-morphological calcification of anemia ومثال على كل واحد</p>
+                    <p>-megaloplastic anemia ايه الي ناقص فيها B12 - folic acid</p>
+                    <p>-acute renal failure causes ومثال على كل نوع</p>
+                    <p>- Renal manifestations of SLE</p>
+                    <p>- melena (definition -causes)</p>
+                    <p>-Addison disease = chronic adrenal failure يحصل فيها hypo or Hyper pigmentation</p>
+                    <p>يحصل فيها Hyper pigmentation ليه طيب؟ لأن الACTH يشبه ال melanin فيحصل له engulfing by melanocytes</p>
+                    <p>ده الي فاكره</p>
+                    <p>Sk</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:11</p>
+                    <p class="author">Said katkot</p>
+                    <p>د عمرو خليفه</p>
+                    <p>Examine head</p>
+                    <p>Examine thyroid خلي بالك ان العيان ايده متكونش مسنوده ع السرير ميكونش عامل support بيها هو كان عايز تقوله كدا</p>
+                    <p>DD of halitosis</p>
+                    <p>Plummer vinson syndrome ( iron def - dysphagia - web )</p>
+                    <p>Dd between CRF .. ARF</p>
+                    <p>Myoglobinuria بتحصل في حالات crush syndrome and rhabdomyolysis</p>
+                    <p>Diagnosis of it by muscle marker and biopsy</p>
+                    <p>د محمد خالد</p>
+                    <p>Inspection of abdomen</p>
+                    <p>Pulse of radial felt on distal end of radius</p>
+                    <p>Dorsalis pedis on 1 st metatarsal bone</p>
+                    <p>Popliteal felt on distal end of femur</p>
+                    <p>Skin manifestation of LCF</p>
+                    <p>Palmer erythema .. spider nevi</p>
+                    <p>Eye sign of thyrotoxicosis</p>
+                    <p>Direction of enlargement of spleen</p>
+                    <p>د رشا شفوي لذيذه ومتعاونه بصراحه</p>
+                    <p>Causes of thrombocytopenia</p>
+                    <p>Types of scleroderma and Ab specific</p>
+                    <p>SLE varient ( drug induced .. antiphospholipid )</p>
+                    <p>Hematochezia Def ( upper or lower ) and when to be upper in case of massive Hge</p>
+                    <p>S</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">17:32</p>
+                    <p class="author">Salma</p>
+                    <p>د عمرو خليفه</p>
+                    <p>Examine abdomen</p>
+                    <p>و سألني بعلق علي ايه ف umblicus</p>
+                    <p>و لو فيه discharge بيبقي ايه</p>
+                    <p>و سألني يعني ايه cullen sign</p>
+                    <p>Sister mary nodule</p>
+                    <p>د محمد خالد</p>
+                    <p>Peripheral pulsation of LL</p>
+                    <p>Non abdominal causes of acute abdomen</p>
+                    <p>و abdominal causes برده</p>
+                    <p>و cause of non pulsating neck vein</p>
+                    <p>د رشا</p>
+                    <p>Cause of heamolytic anemia</p>
+                    <p>SLE varients</p>
+                    <p>Def of melena</p>
+                    <p>Fresh Bleeding per rectum بيبقي upper or lower</p>
+                    <p>Causes of acute renal failure</p>
+                    <p>Specific test to diagnose thalassemia</p>
+                    <p>AA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">17:47</p>
+                    <p class="author">Abdulrahman Albalasy</p>
+                    <p>د محمد خالد</p>
+                    <p>سأل عن الdorsalis pedis بيتحس فين بالضبط؟</p>
+                    <p>و لو ملقيتهوش ؟</p>
+                    <p>ده اللي ممكن يكون جديد بس</p>
+                    <p>د عمرو خليفة سألني عن ال horner syndrome</p>
+                    <p>و عن ال polycythemia</p>
+                    <p>شفوي د رشا</p>
+                    <p>امتى bleeding per rectum (fresh) يبقى بسبب Upper GI bleeding</p>
+                    <p>SE</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">18:20</p>
+                    <p class="author">Saad Elhallag</p>
+                    <p>عملي اول لجنة د تامر بيتكلم معاك مش بيوترك ولا حاجة يعني</p>
+                    <p>كانت حالة R.A</p>
+                    <p>- Examine ال
+            
+             deformity اللي ف ال hand ومبتلحقش تكمل وبيقلب عادي المهم يلاقيك عارف</p>
+                    <p>- بتعالج ال R.A ازاي enumerate بس كدة بدات ب ال rest وال physeotherapy وبعدين قولت ال DMARDS فسال لو منفعش هتعمل ايه >> هتدي Immunosuppressive ولو منفعش >> هتعدي biolgics فسال ايه هي بقي ( anti TNF + IL inhibitors)</p>
+                    <p>- عيان روماتويد لقيت عنده heavy proteinuria يبقي سببها ايه ( Gold salts و penicillamin ) وسال ايه تاني فوقفت قال هي صعبة مش مشكلة</p>
+                    <p>عملي تاني لجنة د هنداوي اكسترنال</p>
+                    <p>- Percuss chest (العيان كان نايم ف عملت ant. وشرحتله الباقي انه dull عند ال 4th & 5th فالمفروض لو صاحي اقوله ياخد نفسه علشان اتاكد ان ده ال liver واعمل ال percussion ع ال back)</p>
+                    <p>- ايه ال notes اللي تعرفها ف حالة شيست (resonance - tempanic resonance - dull - impaired note)</p>
+                    <p>- Bounders of traubs area</p>
+                    <p>- Normal note in traubs</p>
+                    <p>- Causes of dullnes</p>
+                    <p>الشفوي د رشا</p>
+                    <p>- Causes of hemolitic anemia</p>
+                    <p>- فيهم واحدة بتعمل deformity ايه هي >> thalssemia ، بتشخصها ازاي >> Hb electropheresis</p>
+                    <p>- Causes of 1ry adrenal faileur ( addison يعني)</p>
+                    <p>- ايه الدوا اللي يوقفه يعمل addison علطول (glucocoricoids)</p>
+                    <p>- Types of scleroderma</p>
+                    <p>- Ab of diffuse type ( anti SCL70)</p>
+                    <p>- Ab of limitted type ( anti centomere)</p>
+                    <p>- Melena (def. & Causes)</p>
+                    <p>- ممكن يبقي فيه fresh blood ف ال melena جاي من ال upper ولا لازم lower بس (حالة massive hge)</p>
+                    <p>- Types of DM (1ry DM > type 1&2, MODY, LADA + 2nd DM > pencartic injury....)</p>
+                    <p>AD</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">21:50</p>
+                    <p class="author">Abdullah Daboos</p>
+                    <p>د/تامر</p>
+                    <p>Treatment of RA عناوين بس كده</p>
+                    <p>Examine hand كانت حاله روماتويد باينه يعني</p>
+                    <p>لو الحاله حصلها diarrhea تشك في ايه الاجابه ulcerative colitis</p>
+                    <p>لو حصل proteinuria يبقي GN</p>
+                    <p>دكتور هنداوي</p>
+                    <p>Percuss chest ولقيت ايه</p>
+                    <p>Boundaries of traubes area</p>
+                    <p>ايه ال notes اللي في حاله الشيست</p>
+                    <p>دكتوره رشا شفوي</p>
+                    <p>ايه الaxial joint اللي بيتاثر في حاله ال RA الاجابه ال atlantoaxial</p>
+                    <p>Investigation of RA</p>
+                    <p>اسباب ال thrombocytopenia</p>
+                    <p>Causes of CRF</p>
+                    <p>Addison c/p وايه اهم investigation</p>
+                    <p>تعريف ال cirrhosis</p>
+                    <p>RA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">06:47</p>
+                    <p class="author">Reem Abdo</p>
+                    <p>دكتور تامر</p>
+                    <p>قولي الحاله دي ايه و اوصفي deformity الي شايفاها الحاله كانت RA</p>
+                    <p>في حاله عندها LL edema ايه test الي المفروض اعمله</p>
+                    <p>ولو لقيت proteinuria عالي تبقى حاله ايه</p>
+                    <p>وقولي الtreatment of RA</p>
+                    <p>دكتور اكسترنال</p>
+                    <p>Palpation of chest</p>
+                    <p>ايه الاسباب الي تخلي الtrchea تعمل shift لاحد الجوانب وهي نورمالي center or not</p>
+                    <p>اعملي TVF</p>
+                    <p>وايه def تبعه وامتى بيزيد</p>
+                    <p>اعلمي respiratory movement</p>
+                    <p>وايه الcomment</p>
+                    <p>الشفوي دكتور رشا</p>
+                    <p>انواع الانيميا حسب morphology ومثال على كل نوع</p>
+                    <p>ايه هي thrombocytopenia وايه النورمال رينج</p>
+                    <p>inv of DM</p>
+                    <p>Hemochromatosis defect in ?</p>
+                    <p>Etiology of acut renal failur</p>
+                    <p>SA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">08:45</p>
+                    <p class="author">Sara Abdullah</p>
+                    <p>شفوي د مدحت</p>
+                    <p>Causes of Ascites</p>
+                    <p>Causes of Hypokalemia and Hyperkalemia</p>
+                    <p>Normal range of albumin and k</p>
+                    <p>عملي محمد خالد حاله Ascites</p>
+                    <p>Inspect abdomen</p>
+                    <p>ايه هي ال items اللي هتكلم عليها</p>
+                    <p>Causes of vesible prestalesis</p>
+                    <p>Causes of umblical herniation</p>
+                    <p>Causes of abdominal pain بس مش بسبب abdominal organs</p>
+                    <p>congested pulsating neck veins</p>
+                    <p>ايه انواع ال discharge في ال umblicus</p>
+                    <p>ايه نوع ال subcostal angle من غير ما تبصي ع العيان</p>
+                    <p>واسئله كتير دي اللي فاكراها</p>
+                    <p>لجنه عملي عمرو خليفه حاله thyroid</p>
+                    <p>Examine head and neck</p>
+                    <p>Consistancy of thyroid</p>
+                    <p>Causes of hard thyroid</p>
+                    <p>ايه انواع ال malignancy وايه ال common فيهم</p>
+                    <p>AS</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">10:00</p>
+                    <p class="author">Asmaa Sadaka</p>
+                    <p>عملي دكتور اكسترنال</p>
+                    <p>-examine abdomen</p>
+                    <p>-surface anatomy of gall bladder</p>
+                    <p>-بعمل tidal percussion ليه</p>
+                    <p>-ايه هوا الliver span</p>
+                    <p>عملي د. محمد خالد</p>
+                    <p>بيسأل في كل الكتب بيسمع اول كلمتين ويدخل في ال بعده</p>
+                    <p>-examine pulse , ايه سبب الirregularity</p>
+                    <p>-الفرق بين AF , extrasystole</p>
+                    <p>-بنشوف jaundice فين وليه بتظهر في sclera</p>
+                    <p>-Investigation of RA</p>
+                    <p>-Endocrinal emergencies</p>
+                    <p>-Def. DI , types , ttt</p>
+                    <p>-Types of anemia in cirrhosis</p>
+                    <p>شفوي د. عمرو خليفة</p>
+                    <p>-Causes of nephrotic in adult</p>
+                    <p>-Investigation of crohn's</p>
+                    <p>-Endocrinal emergencies</p>
+                    <p>-Drugs of DM</p>
+                    <p>-Factitious hypoglycemia</p>
+                    <p>ae</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">14:44</p>
+                    <p class="author">ahmed elsedawy</p
+            
+            >
+                    <p>اتسألتو في ايه النهاردة يا شباب</p>
+                    <p>M</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:06</p>
+                    <p class="author">Mo</p>
+                    <p>Wilson</p>
+                    <p>Heamochromatosis</p>
+                    <p>Anemia</p>
+                    <p>Dm</p>
+                    <p>Percussion of liver</p>
+                    <p>Hyperspleenism</p>
+                    <p>Anemia of chronic liver disease</p>
+                    <p>MA</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:13</p>
+                    <p class="author">M. ALNady</p>
+                    <p>Inspect abd</p>
+                    <p>Examine LL</p>
+                    <p>Pallor</p>
+                    <p>Anemia</p>
+                    <p>Jaundice</p>
+                    <p>Portal hypertension</p>
+                    <p>Crohn's vs Ulcerative collitis</p>
+                    <p>Nephrotic</p>
+                    <p>HCC</p>
+                    <p>Primary biliary cirrhosis</p>
+                    <p>MZ</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:16</p>
+                    <p class="author">Mohamed Zakaria</p>
+                    <p>د.عمرو عملي</p>
+                    <p>Examine lower limp</p>
+                    <p>Sites of prepheral pulsation</p>
+                    <p>Cardiac symptoms in RA</p>
+                    <p>Lung signs in RA</p>
+                    <p>د.رشا عملي</p>
+                    <p>Lower limp edema</p>
+                    <p>Causes of bitting edema</p>
+                    <p>Causes of bleeding tendancy in hepatic patient</p>
+                    <p>Causes of decrease platelets in hepatic patient</p>
+                    <p>د.مدحت شفوي</p>
+                    <p>Primary biliary cirrhosis</p>
+                    <p>Auto immune hepatitis</p>
+                    <p>Ulcerative colitis</p>
+                    <p>Causes of thrombocytopenia</p>
+                    <p>Diagnosis of DM</p>
+                    <p>AE</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:36</p>
+                    <p class="author">Amr Elkholy</p>
+                    <p>Voice message</p>
+                    <p>05:47, 6.8 MB</p>
+                    <p>16:37</p>
+                    <p>Voice message</p>
+                    <p>01:38, 1.9 MB</p>
+                    <p>MG</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:46</p>
+                    <p class="author">Mohamed Gebril</p>
+                    <p>د عمرو عملى</p>
+                    <p>Inspect abdomen</p>
+                    <p>Cause of tender splenomegaly</p>
+                    <p>Prepheral pulsations</p>
+                    <p>د رشا عملى</p>
+                    <p>Inspect hand</p>
+                    <p>Cause of palmar erythema</p>
+                    <p>Site to detect pallor</p>
+                    <p>Cause of anemia in LCF</p>
+                    <p>c/p and ttt of hypersplenism</p>
+                    <p>د مدحت</p>
+                    <p>Thrombocytopenia</p>
+                    <p>Acute symptoms of DM هو كان عاوز hypo و ال hyperglycemia</p>
+                    <p>Cause of hypoglycemia</p>
+                    <p>Cause of hyperglycemia</p>
+                    <p>Ulcerative colitis and crohn's</p>
+                    <p>مغ</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">16:53</p>
+                    <p class="author">محمد غنيم</p>
+                    <p>عملي د.تامر</p>
+                    <p>Percussion of moderate ascites</p>
+                    <p>Percussion of upper border of liver</p>
+                    <p>TTT of ascites</p>
+                    <p>مش بيخليك تكمل حاجة للاخر</p>
+                    <p>عملي محمد خالد</p>
+                    <p>Examine thyroid and full comment</p>
+                    <p>ايه ال sign اللي لما ترفع ايد العيان وشه يحمر وليه</p>
+                    <p>تعرف منين انه graves بالنظر كدا اللي هي eye sign وال swelling</p>
+                    <p>ايه الفرق بين ال hyper thyrodism و ال thyrotoxicosis</p>
+                    <p>واسئلة تانية كدا مش فاكر بس عايز يعلي او يحط عليك وخلاص</p>
+                    <p>شفوي د رشا</p>
+                    <p>Causes of myxedema</p>
+                    <p>Melena تعريفها وابر ولا لور بليدينج وامتي مقدرش احكم انها melena او hematochezia</p>
+                    <p>يعني ايه crest عايزة المكونات</p>
+                    <p>MM</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">17:10</p>
+                    <p class="author">Mohamed Moustafa</p>
+                    <p>دكتور تامر زي اللي قبلي</p>
+                    <p>دكتور محمد خالد صعب بصراحة ففكرة أنه بيوترك</p>
+                    <p>Hypersplenism criteria</p>
+                    <p>تعرف ال hypersplenism ازاي</p>
+                    <p>ال jaundice value</p>
+                    <p>Examine abdomen</p>
+                    <p>اتجاه huge spleen</p>
+                    <p>Jugular distension</p>
+                    <p>MN</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">17:53</p>
+                    <p class="author">Mohamed Nour</p>
+                    <p>عملي دكتور تامر</p>
+                    <p>Percuss upper border of liver</p>
+                    <p>Palpate lower border of liver</p>
+                    <p>والعيان كان ascites وcirrhotic ف سألني لو لقيت بعد فتره loss of weight والliver بدل ما يبقي shrunken بقي palpable ف الاجابه هتبقي انه HCC</p>
+                    <p>TTT of ascites عناوين بس</p>
+                    <p>عملي دكتور محمد خالد</p>
+                    <p>Examine thyroid and comment</p>
+                    <p>-ايه اللي ممكن هتشوفه ع الskin ف رقبه العيان ده حتي لو مش موجوده الsign دلوقتي</p>
+                    <p>-ازاي تعرف ان دي Graves</p>
+                    <p>-لو بقي malignat ممكن تلاقي ايه</p>
+                    <p>وبعد كده سأل لو عيان hypersplenism ممكن تلاقي ايه فيه</p>
+                    <p>شفوي دكتوره رشا</p>
+                    <p>-Morphological classification of anemia</p>
+                    <p>-هتخلصها وتسألك تاني قولي تقسيمه تانيه للanemia ف هتقولها التقسيمه بتاعه production</p>
+                    <p>-Articular manifestations ف ايد عيان الروماتويد وبمجرد ما تقول اول شويه مش هتخليك تكمل</p>
+                    <p>-وايه الaxial joint اللي بيتأثر ف RA</p>
+                    <p>-Def of hematochtezia وبتبقي upper ولا lower</p>
+                    <p>والسؤال اللي عايزاه من كل ده مينفعش يبقي الfresh bleeding يبقي upper ؟</p>
+                    <p>ف هت
+            
+            جاوبها انه ف العادي انه يبقي lower بس لو فيه massive hge ممكن يبقي upper عادي</p>
+                    <p>M</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">21:54</p>
+                    <p class="author">M</p>
+                    <p>شفوى د محمد خالد</p>
+                    <p>-إزاى تعرف إن العيان عنده hyper splenism</p>
+                    <p>-3 differences between ulcerative colitis and chron's</p>
+                    <p>-Most serious complication of ulcerative colitis and how to confirm it</p>
+                    <p>-what the most specific test for aplastic anemia and what's the findings</p>
+                    <p>-criteria of gravis disease</p>
+                    <p>-definition of dysphagia</p>
+                    <p>-differentiate between ARF & CRF in one word</p>
+                    <p>عملى د عمرو</p>
+                    <p>- examine the face</p>
+                    <p>-causes of malar rash</p>
+                    <p>-what is the visible connective tissue diseases</p>
+                    <p>-العيانه دى عندها scleroderma وإلا لا شوفهالى في ال face كدا</p>
+                    <p>-name of the mouth of scleroderma</p>
+                    <p>-لو هى عندها SLE وكمان 2 connective tissue diseases يبقي عندها إيه ؟</p>
+                    <p>- investigations of scleroderma</p>
+                    <p>عملى د رشا</p>
+                    <p>-examine supra sternal pulsation</p>
+                    <p>- causes of visible supra sternal pulsation</p>
+                    <p>- 2 orders to differentiate between thyroid mass and non thyroid mass</p>
+                    <p>-what is the order to the patient if you think there's retrosternal goiter</p>
+                    <p>GH</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">22:40</p>
+                    <p class="author">G H</p>
+                    <p>- ايه ال Emergency اللى فى ال endocrine ؟؟ وال addison فى emergency اسمها ايه ؟؟</p>
+                    <p>- autoimmune hepatitis? اكتر فى Male ولا female Definition , CP , types , ttt</p>
+                    <p>- thrombocytopenia. Causes?</p>
+                    <p>-chronic kidney disease. Causes ?</p>
+                    <p>-ال anemia اللى بسبب الliver ؟ اهم حاجه تبدأ بيها Iron deficiency anemia</p>
+                    <p>Splenomegally ?</p>
+                    <p>Huge spleen??</p>
+                    <p>دول اللى فاكراهم 🤔</p>
+                    <p>ف</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">01:22</p>
+                    <p class="author">فـٰاتن عـوض</p>
+                    <p>شفوي:</p>
+                    <p>د. مدحت</p>
+                    <p>Autoimmune hepatitis</p>
+                    <p>1ry biliary cirrhosis</p>
+                    <p>وأهم حاجة الـ serological test بتاعه.</p>
+                    <p>Types of anemia</p>
+                    <p>D.D of microcytic hypochromic anemia.</p>
+                    <p>Causes of ascites</p>
+                    <p>Types of diabetes</p>
+                    <p>و الـ (special types: MODY, LADA) مهمة</p>
+                    <p>عملي:</p>
+                    <p>د. تامر</p>
+                    <p>Percuss for ascites</p>
+                    <p>واسمه اي التكنيك دا.</p>
+                    <p>Examine jaundice</p>
+                    <p>ttt of ascites</p>
+                    <p>Upper border if liver,</p>
+                    <p>وبيكون بـ heavy ولا light percussion</p>
+                    <p>مش بيقف ع السؤال كتير وبينقل ع غيره.</p>
+                    <p>د. محمد خالد</p>
+                    <p>Examine abdomen, comment</p>
+                    <p>Types of splenic pain</p>
+                    <p>Causes of hepatosplenomegaly</p>
+                    <p>Direction of spleen enlargment</p>
+                    <p>Causes of anemia in liver disease</p>
+                    <p>Hypersplenism</p>
+                    <p>Jaundice بنشوفها فين</p>
+                    <p>وكان مش بيستنى أخلص الإجابة وبينقل ع الـ بعده برضه.</p>
+                    <p>MK</p>
+                </div>
+            </div>
+            
+            <div class="message">
+                <div class="user-icon"><img src="user.png" alt="User Icon"></div>
+                <div class="message-content">
+                    <p class="timestamp">19:09</p>
+                    <p class="author">Moh... KJ</p>
+                    <p>عملي د.تامر</p>
+                    <p>Percussion of moderate ascites</p>
+                    <p>Percussion of upper border of liver</p>
+                    <p>TTT of ascites</p>
+                    <p>مش بيخليك تكمل حاجة للاخر</p>
+                    <p>عملي محمد خالد</p>
+                    <p>Examine thyroid and full comment</p>
+                    <p>شفوي مدحت</p>
+                    <p>DM diagnosis</p>
+                    <p>Chrons disease ايه هوا ؟ +investigation</p>
+                    <p>Thrombocytopenia</p>
+                    <p>Paltetlets disorder</p>
+                    <p>Ahmed Samaha invited احمد جمعة الشافعى</p>
+                </div>
+            </div>
+            ```
+            
+            دعواتكم يا شباب ❤️
+        
+        
+        <!-- Continue adding the remaining messages similarly -->
+    </div>
+    <button id="scrollTop">⬆️</button>
+    <script src="scripts.js"></script>
+</body>
+</html>
